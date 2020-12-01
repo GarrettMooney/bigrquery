@@ -35,11 +35,9 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@master
 
-      - name: Install grpc/protoc
-        if: runner.os != 'Windows'
-        run: |
-          brew install openssl
-          brew install grpc
+      - uses: abelfodil/protoc-action@v1
+        with:
+          enable-grpc: true
 
       - name: Query dependencies
         run: |
