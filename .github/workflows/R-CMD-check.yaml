@@ -35,9 +35,10 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@master
 
-      - uses: abelfodil/protoc-action@v1
-        with:
-          enable-grpc: true
+      - name: Install grpc/protoc
+        if: runner.os != 'Linux'
+        run: |
+          brew install grpc
 
       - name: Query dependencies
         run: |
