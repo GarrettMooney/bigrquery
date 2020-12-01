@@ -39,6 +39,13 @@ print.configure_database <- function(x, ...) {
 }
 
 #' @export
+writeLines <- function(text, con, ...) {
+    f <- file(con, open = "wb")
+    base::writeLines(enc2utf8(text), f, sep = "\n", useBytes = TRUE)
+    close(f)
+}
+
+#' @export
 str.configure_database <- function(object, ...) {
     writeLines("<configure database>")
     objects <- mget(ls(envir = object, all.names = TRUE), object)

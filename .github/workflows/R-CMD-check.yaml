@@ -38,6 +38,7 @@ jobs:
       - name: Install grpc/protoc
         if: runner.os != 'Windows'
         run: |
+          brew install openssl
           brew install grpc
 
       - name: Query dependencies
